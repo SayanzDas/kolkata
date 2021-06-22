@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Web Page Desing</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="images/logo.png" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="images/user.png" class="logo">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>কলকাতা</h1>
+                <p>City of Joy is a 1985 novel by Dominique Lapierre.<br> It was adapted as a film by Roland Joffé in 1992. <br>Calcutta is nicknamed "the City of Joy" after this novel,<br>although the slum was based on an area in its twin city of Howrah.</p>
+                <input type="text" placeholder="Search">
+
+            </div>
+        </div>
+        <div class="slider">
+            <img src="images/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="images/small1.jpg" class="active thumbnail">
+                <img src="images/small2.jpg" class="thumbnail">
+                <img src="images/small3.jpg" class="thumbnail">
+                <img src="images/small4.jpg" class="thumbnail">
+                <img src="images/small5.jpg" class="thumbnail">
+                <img src="images/small6.jpg" class="thumbnail">
+                <img src="images/small7.jpg" class="thumbnail">
+                <img src="images/small8.jpg" class="thumbnail">
+            </div>
+            <img src="images/right-arrow.png" id="next">
+        </div>
+    </div>
+    <script>
+        var prev = document.getElementById("prev");
+        var next= document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "images/bg1.jpg",
+            "images/bg2.jpg",
+            "images/bg3.jpg",
+            "images/bg4.jpg",
+            "images/bg5.jpg",
+            "images/bg6.jpg",
+            "images/bg7.jpg",
+            "images/bg8.jpg",
+
+
+        );
+        let i = 0;
+        next.onclick = function () {
+            if (i < 7) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")';
+               thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+        }
+        prev.onclick = function () {
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+               thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
